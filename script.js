@@ -18,6 +18,9 @@ const container = document.querySelector('.container');
 const gridLayout = document.querySelector('.grid-layout');
 createDiv(16);
 
-column.addEventListener('mouseover',() => {
-  column.style.backgroundColor = 'red'
-})
+
+const rowSelector = document.querySelectorAll('.row').forEach(row => {
+  row.addEventListener('mouseover', () => {
+    row.style.backgroundColor = 'purple'
+  })
+});
