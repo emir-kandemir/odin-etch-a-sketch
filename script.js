@@ -1,5 +1,6 @@
 let column;
 let row;
+const color = ['red', 'green', 'blue', 'purple', 'yellow', 'orange']
 
 function createDiv(num) {
   for (let i = 0; i < num; i++) {
@@ -24,3 +25,17 @@ const rowSelector = document.querySelectorAll('.row').forEach(row => {
     row.style.backgroundColor = 'purple'
   })
 });
+
+const gridButton = document.querySelector('#grid-btn');
+const getInput = () => {
+  const gridSize = parseInt(prompt('Choose a grid size', 16));
+  if (gridSize === 100) {
+    getInput();
+  } else return gridSize;
+}
+
+gridButton.addEventListener('click', () => {
+  const selectedGrid = getInput();
+  gridLayout.textContent = ''
+  createDiv(selectedGrid);
+})
