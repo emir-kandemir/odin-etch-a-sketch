@@ -19,14 +19,18 @@ const container = document.querySelector('.container');
 const gridLayout = document.querySelector('.grid-layout');
 createDiv(16);
 
-
-const rowSelector = document.querySelectorAll('.row').forEach(row => {
+function rowColor () {
+  const rowSelector = document.querySelectorAll('.row').forEach(row => {
   row.addEventListener('mouseover', () => {
     row.style.backgroundColor = 'purple'
   })
 });
+}
+rowColor();
 
 const gridButton = document.querySelector('#grid-btn');
+const rgbButton = document.querySelector('#rgb-btn')
+
 const getInput = () => {
   const gridSize = parseInt(prompt('Choose a grid size', 16));
   if (gridSize === 100) {
@@ -38,4 +42,5 @@ gridButton.addEventListener('click', () => {
   const selectedGrid = getInput();
   gridLayout.textContent = ''
   createDiv(selectedGrid);
+  rowColor();
 })
