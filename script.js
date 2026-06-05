@@ -1,6 +1,11 @@
 let column;
 let row;
+const container = document.querySelector('.container');
+const gridLayout = document.querySelector('.grid-layout');
+const gridButton = document.querySelector('#grid-btn');
+const rgbButton = document.querySelector('#rgb-btn')
 const color = ['red', 'green', 'blue', 'purple', 'yellow', 'orange']
+let isSelected = false
 
 function createDiv(num) {
   for (let i = 0; i < num; i++) {
@@ -15,10 +20,6 @@ function createDiv(num) {
   }
 }
 
-const container = document.querySelector('.container');
-const gridLayout = document.querySelector('.grid-layout');
-createDiv(16);
-
 function rowColor () {
   const rowSelector = document.querySelectorAll('.row').forEach(row => {
   row.addEventListener('mouseover', () => {
@@ -26,10 +27,6 @@ function rowColor () {
   })
 });
 }
-rowColor();
-
-const gridButton = document.querySelector('#grid-btn');
-const rgbButton = document.querySelector('#rgb-btn')
 
 const getInput = () => {
   const gridSize = parseInt(prompt('Choose a grid size', 16));
@@ -44,3 +41,10 @@ gridButton.addEventListener('click', () => {
   createDiv(selectedGrid);
   rowColor();
 })
+
+rgbButton.addEventListener('click', () => {
+  isSelected = true;
+})
+
+createDiv(16);
+rowColor();
