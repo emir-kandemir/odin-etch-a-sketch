@@ -4,6 +4,8 @@ const container = document.querySelector('.container');
 const gridLayout = document.querySelector('.grid-layout');
 const gridButton = document.querySelector('#grid-btn');
 const rgbButton = document.querySelector('#rgb-btn');
+const colorButton = document.querySelector('#color-btn');
+
 const color = ['red', 'green', 'blue', 'purple', 'yellow', 'orange'];
 let isSelected = false;
 
@@ -49,9 +51,14 @@ gridButton.addEventListener('click', () => {
   rowColor();
 });
 
+colorButton.addEventListener('click', () => {
+  isSelected = false;
+  rowColor();
+});
+
 rgbButton.addEventListener('click', () => {
   isSelected = true;
+  rowColor();
 });
 
 createDiv(16);
-rowColor();
